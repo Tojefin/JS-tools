@@ -88,16 +88,16 @@
 
 ### Пример scss
 
-	.selector {
-		 border: none;
-		 border-radius: 0;
-		 background: none;
-		 padding: 0;
-		 cursor: pointer;
-		 width: fit-content;
-		 text-align: center;
-		 padding-bottom: 8px;
-		 cursor: pointer;
+    .selector {
+      border: none;
+      border-radius: 0;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+      width: fit-content;
+      text-align: center;
+      padding-bottom: 8px;
+      cursor: pointer;
 
       & option {
         background-color: #444;
