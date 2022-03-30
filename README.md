@@ -69,7 +69,7 @@
 4. В опции прописать числовой value от 0
 5. Классы для стилей **<основной класс>__[container, list, list--open, item, item--active]**
 
-###Пример
+### Пример
 
     <select class="selector other-styles" id="filmState">
       <option value="Non">Не просмотрено</option>
@@ -86,7 +86,7 @@
       })
     </script>
 
-###Пример scss
+### Пример scss
 
 	.selector {
 		 border: none;
