@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Стили и визуал -->
+    <style media="screen">
+      .popup-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        transition: all ease 0.3s;
+        backdrop-filter: blur(7px);
+        z-index: -1;
+      }
+      .popup-container--active {
+        opacity: 1;
+        z-index: 10;
+      }
+    </style>
+    <!-- Скрипты -->
+    <script defer src="js/notify.js"></script>
+    <script defer src="js/popup.js"></script>
+    <script defer src="js/selector.js"></script>
+    <title>SandBox</title>
+  </head>
+  <body>
+    <!-- Блок для попапов -->
+    <a onclick="popupShow('donate')">Вызов попапа</a>
+    <div class="popup-container"></div>
+		<template id="popups">
+      <section class="info-popup" id="donate">
+        <a onclick="popupShow()">Закрыть</a>
+        <h2>Поддержать сайт</h2>
+        <p>Arc - это сеть доставки контента, когда вы подключаетесь к ней, вы становитесь
+          мостом между пользователем и сервером, это ускоряет загрузку контента.
+          <br>Я получаю деньги, когда через мосты  с моего сайта проходит трафик.
+          <br>ВНИМАНИЕ: Подключайтесь к Arc только на безлимитных тарифах интернета.</p>
+        <br>
+        <p>А так же вы можете отправить мне донат по этой <a class="link" href="https://www.donationalerts.com/r/tojefin">ссылке</a></p>
+      </section>
+		</template>
+
+    <!-- Блок для селекта -->
+    <select class="selector other-styles" id="filmState">
+      <option value="Non">Не просмотрено</option>
+      <option value="watch">Смотрю</option>
+      <option value="Done">Просмотрено</option>
+      <option value="3">Запланировано</option>
+    </select>
+    <script type="text/javascript">
+      var select = document.querySelector('select')
+      select.addEventListener('selectorChange', (e) => {
+        console.log(e.detail  );
+        console.log(select.value);
+      })
+    </script>
+
+    <a onclick="notifySend(`<h1>Произошла ошибка</h1>`, 'error-style')">Вызов уведомления</a>
+
+  </body>
+</html>
