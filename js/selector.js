@@ -56,6 +56,10 @@ function selectToggle(select) {
       options = `${options}<li class="${classList}" value="${i}" onclick="selectOption(this)">${opt.innerText}</li>`
     });
     list.innerHTML = `${options}`
+    select.focus();
+    select.addEventListener('focusout', () => {
+      selectToggle(select)
+    }, {once: true})
   } else {
     list.innerHTML = '';
   }
@@ -73,11 +77,14 @@ if (selectors) {
       let element = document.createElement('div');
       element.id = item.id
       element.value = 0
+      element.tabIndex = '-1'
       element.classList = `${item.classList[0]}__container`
       element.innerHTML = select
       item.parentNode.insertBefore(element, item);
-      item.style.position = 'fixed';
-      item.style.top = '-100vh';
+      item.style.cssText = `
+        position: fixed;
+        top: -100vh;
+      `;
     });
   } else {
     selectors.forEach((item) => {
