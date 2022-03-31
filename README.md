@@ -1,6 +1,7 @@
 
 # JS-tools
 Сборник моих универсальных скриптов
+Состав: Popup, Selector, Notify
 
 ## Popup
 
@@ -58,7 +59,7 @@
 ### Возможности
 - Полная настройка своих стилей
 - Отключение скрипта для мобильных устройств
-- Собственное событие изменения зачений
+- Кастомное событие изменения зачений
 - Нативное получение выбраных значений
 - Функция для изменения значения
 
@@ -66,8 +67,7 @@
 1. Разметить обычный селект
 2. Указать id селекту
 3. Добавить основной класс для селекта
-4. В опции прописать числовой value от 0
-5. Классы для стилей **<основной класс>__[container, list, list--open, item, item--active]**
+4. Классы для стилей **<основной класс>__[container, list, list--open, item, item--active]**
 
 ### Пример
 
@@ -80,6 +80,7 @@
 
     <script type="text/javascript">
       var select = document.querySelector('select')
+      selectChangeValue(select, 2, true) // origin, valueid, NoEvent
       select.addEventListener('selectorChange', (e) => {
         console.log(e.detail);
         console.log(select.value);
@@ -150,4 +151,4 @@
 - Функция для вызова разных уведомлений
 
 ### Как использовать:
-1. Разметить вызов попапа `<a onclick="notifySend('Text', 'style-class')">Вызов</a>`
+1. Разметить вызов уведомления `<a onclick="notifySend('Text', 'style-class')">Вызов</a>`

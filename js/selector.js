@@ -24,7 +24,6 @@ function selectOption(option) {
   let origin = document.querySelector(`select#${select.id}`)
   selectChangeValue(origin, option.value)
   selectToggle(select)
-  select.querySelector('ul').innerHTML = '';
 }
 
 //Изменение значения
@@ -50,12 +49,15 @@ function selectToggle(select) {
     let options = ``;
     document.querySelector(`select#${select.id}`).querySelectorAll('option').forEach((opt, i) => {
       if (opt.value == select.value) {
-        options = `${options}<li class="${className}__item ${className}__item--active" value="${i}" onclick="selectOption(this)">${opt.innerText}</li>`
+        classList = `${className}__item ${className}__item--active`
       } else {
-        options = `${options}<li class="${className}__item" value="${i}" onclick="selectOption(this)">${opt.innerText}</li>`
+        classList = `${className}__item`
       }
+      options = `${options}<li class="${classList}" value="${i}" onclick="selectOption(this)">${opt.innerText}</li>`
     });
     list.innerHTML = `${options}`
+  } else {
+    list.innerHTML = '';
   }
 }
 
