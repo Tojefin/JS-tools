@@ -1,0 +1,41 @@
+.notify {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 10px 30px;
+  font-family: sans-serif;
+  font-size: 24px;
+  background: rgba(0, 255, 51, 0.5);
+  backdrop-filter: blur(7px);
+  border-radius: 15px;
+  border: 1px #999 solid;
+  opacity: 1;
+  transition: all ease 0.3s;
+}
+
+.notify--in {
+  opacity: 0;
+  transform: translate(-50%, 120%);
+}
+
+.notify--out {
+  opacity: 0;
+  transform: translate(-50%, 120%);
+}
+
+.notify--info{
+  background: rgba(222, 222, 222, 0.5);
+}
+
+.notify--success{
+  background: rgba(0, 255, 51, 0.5);
+}
+
+.notify--warn{
+  background: rgba(238, 255, 48, 0.5);
+}
+
+.notify--error{
+  background: rgba(255, 48, 48, 0.5);
+}

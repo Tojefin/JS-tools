@@ -27,6 +27,8 @@
         z-index: 10;
       }
     </style>
+    <link rel="stylesheet" href="css/notify.css">
+    <link rel="stylesheet" href="css/selector.css">
     <!-- Скрипты -->
     <script defer src="js/notify.js"></script>
     <script defer src="js/popup.js"></script>
@@ -57,15 +59,17 @@
       <option value="Done">Просмотрено</option>
       <option value="3">Запланировано</option>
     </select>
+
     <script type="text/javascript">
       var select = document.querySelector('select')
       select.addEventListener('selectorChange', (e) => {
-        console.log(e.detail  );
+        console.log(e.detail);
         console.log(select.value);
       })
     </script>
 
-    <a onclick="notifySend(`<h1>Успешно выполнено</h1>`, 'error-style', 500, true)">Вызов уведомления</a>
-
+    <!-- Блок для notify -->
+    <a onclick="notifySend({content: 'Текст', className: 'MyStyle', duration: 2000, fadein: 50, fadeout: 200, closeOnClick: true})">Вызов уведомления</a>
+    <a onclick="notifySend({content: 'Текст', type: 'error', duration: 2000, fadein: 50, fadeout: 500, closeOnClick: true})">Вызов стандартного уведомления</a>
   </body>
 </html>

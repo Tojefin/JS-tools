@@ -33,6 +33,7 @@
     </template>
 
 ### Пример scss
+
     .popup-container {
       display: flex;
       align-items: center;
@@ -73,10 +74,10 @@
 ### Пример
 
     <select class="selector other-styles" id="filmState">
-      <option value="Non">Не просмотрено</option>
+      <option value="Null">Не просмотрено</option>
       <option value="watch">Смотрю</option>
-      <option value="Done">Просмотрено</option>
-      <option value="3">Запланировано</option>
+      <option value="true">Просмотрено</option>
+      <option value="7">Запланировано</option>
     </select>
 
     <script type="text/javascript">
@@ -107,6 +108,7 @@
     }
 
     .selector__container {
+      position: reletive;
       display: inline-block;
     }
 
@@ -130,7 +132,7 @@
     }
 
     .selector__item {
-      font-family: 'Montserrat';
+      font-family: sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 18px;
@@ -150,6 +152,42 @@
 ### Возможности
 - Полная настройка своих стилей
 - Функция для вызова разных уведомлений
+- Есть стандартные стили в папке css
+- Можно вызывать стандартные стили указывая вместо className type: [info, success, warn, error]
 
 ### Как использовать:
-1. Разметить вызов уведомления `<a onclick="notifySend('Text', 'style-class')">Вызов</a>`
+1. Разметить вызов уведомления `<a onclick="notifySend({content: 'Текст', className: 'notify'})">Вызов</a>`
+2. Доп. параметры (стандартное значение):
+- duration - длительность отображения в мс (3000)
+- fadein - длительность появления в мс (100)
+- fadeout - длительность скрытия в мс (100)
+- closeOnClick - закрывать кликом (false)
+3. Классы для стилей **<основной класс>--[in, out]**
+
+### Пример scss:
+
+    .notify {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      padding: 10px 30px;
+      font-family: sans-serif;
+      font-size: 28px;
+      background: rgba(0, 255, 51, 0.5);
+      backdrop-filter: blur(7px);
+      border-radius: 15px;
+      border: 1px #eee solid;
+      opacity: 1;
+      transition: all ease 0.3s;
+
+      &--in {
+        opacity: 0;
+        transform: translate(-50%, 120%);
+      }
+
+      &--out {
+        opacity: 0;
+        transform: translate(-50%, 120%);
+      }
+    }
