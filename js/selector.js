@@ -29,8 +29,8 @@ function selectOption(option) {
 //Изменение значения
 function selectChangeValue(origin, value, noevent) {
   let select = document.querySelector(`div#${origin.id}`)
-  oldvalue = select.value
   if (select) {
+    oldvalue = select.value
     select.querySelector('span').innerText = select.querySelectorAll('li')[value].innerText
     select.value = value
   }
@@ -58,7 +58,8 @@ function selectToggle(select) {
     list.innerHTML = `${options}`
     select.focus();
     select.addEventListener('focusout', () => {
-      selectToggle(select)
+      list.classList.remove(`${list.classList[0]}--open`)
+      list.innerHTML = '';
     }, {once: true})
   } else {
     list.innerHTML = '';
